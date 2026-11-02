@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="嬰幼兒健康講座筆記：疾病、日常護理、營養健康三大類整理，方便未能到場的家長與照顧者查閱。" />
+  <title>嬰幼兒健康講座筆記</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --text: #1a1d23;
+      --muted: #5c6570;
+      --border: #dde1e6;
+      --accent: #1f6b5a;
+      --accent-soft: #e8f4f0;
+      --warn-bg: #fff8e6;
+      --warn-border: #e6c35c;
+      --danger-bg: #fdecea;
+      --danger-border: #c62828;
+      --danger-text: #7f1d1d;
+      --info-bg: #eef5fb;
+      --info-border: #5a8fc7;
+      --highlight: #fff3a3;
+      --flash: #d4f0e8;
+      --shadow: 0 1px 2px rgba(26, 29, 35, 0.08);
+      --radius: 10px;
+      --max: 40rem;
+      --pad: 1.1rem;
+      --tap: 2.75rem; /* 44px */
+      --header-pad-top: env(safe-area-inset-top, 0px);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+        "Helvetica Neue", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      --fs: 17px;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      font-size: var(--fs);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(12.5rem + var(--header-pad-top));
+    }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:active { opacity: 0.75; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding-top: var(--header-pad-top);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.65rem var(--pad) 0.75rem;
+    }
+    .title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .header-titles { flex: 1; min-width: 0; }
+    .header-titles h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .header-titles .wa-tip {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 6px;
+      padding: 0.35rem 0.55rem;
+      line-height: 1.4;
+    }
+    .header-titles .subtitle {
+      margin: 0.4rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .font-size-ctrl {
+      display: flex;
+      flex-shrink: 0;
+      gap: 0.25rem;
+    }
+    .font-size-ctrl button {
+      min-width: var(--tap);
+      min-height: var(--tap);
+      padding: 0 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .font-size-ctrl button:active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+      align-items: stretch;
+    }
+    #search {
+      flex: 1;
+      min-width: 0;
+      min-height: var(--tap);
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    #search:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+      background: var(--surface);
+    }
+    #search-clear {
+      min-height: var(--tap);
+      min-width: var(--tap);
+      padding: 0 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    #search-clear:active { color: var(--text); border-color: var(--muted); background: var(--bg); }
+    #search-status {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-height: 1.1em;
+    }
+    mark.search-hit {
+      background: var(--highlight);
+      color: inherit;
+      padding: 0 0.1em;
+      border-radius: 2px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.65rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.1rem;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex: 1 1 0;
+      min-height: var(--tap);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .tab:active { background: var(--accent-soft); color: var(--accent); }
+    button.tab {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .select-cat-hint {
+      margin: 0.15rem 0 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .jump-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.65rem;
+      width: 100%;
+    }
+    .jump-row label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .section-select {
+      width: 100%;
+      min-height: var(--tap);
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235c6570' d='M1.4 0L6 4.6 10.6 0 12 1.4 6 7.4 0 1.4z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2.2rem;
+    }
+    .section-select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem var(--pad) 2.5rem;
+      display: block;
+    }
+    .sidebar {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem 0.75rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 900px) {
+      .layout {
+        max-width: calc(var(--max) + 14rem);
+        display: grid;
+        grid-template-columns: 12.5rem 1fr;
+        gap: 1.25rem;
+        align-items: start;
+      }
+      .sidebar {
+        display: block;
+        position: sticky;
+        top: calc(10rem + var(--header-pad-top));
+      }
+      .header-inner { max-width: calc(var(--max) + 14rem); }
+      .jump-row { flex-direction: row; align-items: center; }
+      .jump-row .section-select { flex: 1; }
+      :root { --fs: 18px; --pad: 1.25rem; }
+      html { scroll-padding-top: calc(11rem + var(--header-pad-top)); }
+    }
+
+    .sidebar h2 {
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .toc { list-style: none; margin: 0; padding: 0; }
+    .toc a {
+      display: block;
+      padding: 0.45rem 0.5rem;
+      min-height: 2.5rem;
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+    .toc a:active { background: var(--accent-soft); color: var(--accent); }
+    .toc .depth-1 a {
+      padding-left: 0.95rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .toc .depth-0 > a { font-weight: 700; margin-top: 0.25rem; }
+    .toc .depth-0:first-child > a { margin-top: 0; }
+
+    .main { min-width: 0; max-width: var(--max); margin: 0 auto; }
+
+    .disclaimer {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left-width: 4px;
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .disclaimer strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #7a5c00;
+      font-size: 1.02rem;
+    }
+    .disclaimer p { margin: 0; font-size: 0.95rem; color: var(--text); }
+
+    .category { margin-bottom: 2rem; }
+    .category > .cat-intro {
+      color: var(--muted);
+      margin: 0 0 0.85rem;
+      font-size: 0.95rem;
+    }
+    .cat-heading {
+      margin: 0 0 0.65rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--accent);
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.05rem 1rem 1.15rem;
+      margin-bottom: 0.9rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+    }
+    .card.hidden,
+    .card.filter-hidden { display: none; }
+    .card.flash-highlight {
+      background: var(--flash);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(31, 107, 90, 0.28);
+    }
+    .card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.18rem;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .card h4 {
+      margin: 1.05rem 0 0.45rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .card h4:first-of-type { margin-top: 0.2rem; }
+    .card p { margin: 0.45rem 0 0.7rem; }
+    .card ul, .card ol {
+      margin: 0.4rem 0 0.85rem;
+      padding-left: 1.3rem;
+    }
+    .card li { margin: 0.55rem 0; }
+    .card li::marker { color: var(--accent); }
+
+    .callout {
+      border-radius: 8px;
+      padding: 0.85rem 0.95rem;
+      margin: 0.75rem 0 1rem;
+      border: 1px solid;
+      border-left-width: 4px;
+    }
+    .callout-info {
+      background: var(--info-bg);
+      border-color: var(--info-border);
+    }
+    .callout-danger {
+      background: #fff1f0;
+      border-color: var(--danger-border);
+      color: var(--danger-text);
+      font-weight: 500;
+    }
+    .callout strong { display: block; margin-bottom: 0.35rem; font-size: 1.02rem; }
+
+    .redflag-card {
+      border: 2px solid var(--danger-border);
+      background: #fff5f4;
+      box-shadow: none;
+    }
+    .redflag-card h3 { color: var(--danger-text); font-size: 1.22rem; }
+    .redflag-card.flash-highlight {
+      background: #ffe8e6;
+      border-color: var(--danger-border);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0.75rem 0 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .table-wrap table {
+      width: 100%;
+      min-width: 28rem;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 0;
+      display: table;
+    }
+    @media (min-width: 640px) {
+      .table-wrap table { font-size: 0.92rem; min-width: 0; }
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    th {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .steps {
+      margin: 0.75rem 0 1rem;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .steps li {
+      position: relative;
+      padding: 0.85rem 0.85rem 0.85rem 3rem;
+      margin: 0.65rem 0;
+      background: var(--accent-soft);
+      border-radius: 8px;
+      border: 1px solid #d0e8e0;
+    }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0.7rem;
+      top: 0.9rem;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.7rem;
+      text-align: center;
+    }
+    .steps .step-title {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      display: block;
+      font-size: 1.02rem;
+    }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto 2rem;
+      padding: 0 var(--pad);
+    }
+    @media (min-width: 900px) {
+      .site-footer { max-width: calc(var(--max) + 14rem); }
+    }
+    .footer-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.05rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .footer-box strong { color: var(--text); }
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--tap);
+      margin-top: 0.75rem;
+      padding: 0 0.85rem;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .back-top:active { background: var(--accent-soft); }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 1.75rem 1rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+    .no-results.visible { display: block; }
+
+    /* Accordion cards: default open, click title to collapse */
+    details.card-acc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      margin-bottom: 1.15rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+    }
+    details.card-acc.hidden,
+    details.card-acc.filter-hidden { display: none; }
+    details.card-acc.flash-highlight {
+      background: var(--flash);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(31, 107, 90, 0.28);
+    }
+    details.card-acc > summary.card-sum {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1.05rem 1.1rem;
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+      user-select: none;
+      -webkit-user-select: none;
+      min-height: var(--tap);
+    }
+    details.card-acc > summary.card-sum::-webkit-details-marker { display: none; }
+    details.card-acc > summary.card-sum::marker { content: ""; }
+    details.card-acc > summary.card-sum .acc-chevron {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+    details.card-acc:not([open]) > summary.card-sum .acc-chevron {
+      transform: rotate(-90deg);
+    }
+    details.card-acc > summary.card-sum:active {
+      background: var(--accent-soft);
+    }
+    details.card-acc .card-body {
+      padding: 0 1.1rem 1.35rem;
+      border-top: 1px solid var(--border);
+    }
+    details.card-acc .card-body h4 {
+      margin: 1.25rem 0 0.55rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    details.card-acc .card-body h4:first-child { margin-top: 0.85rem; }
+    details.card-acc .card-body p { margin: 0.55rem 0 0.85rem; }
+    details.card-acc .card-body ul,
+    details.card-acc .card-body ol {
+      margin: 0.4rem 0 0.85rem;
+      padding-left: 1.3rem;
+    }
+    details.card-acc .card-body li { margin: 0.65rem 0; }
+    details.card-acc.redflag-card {
+      border: 2px solid var(--danger-border);
+      background: #fff5f4;
+      box-shadow: none;
+    }
+    details.card-acc.redflag-card > summary.card-sum { color: var(--danger-text); font-size: 1.22rem; }
+    details.card-acc.redflag-card.flash-highlight {
+      background: #ffe8e6;
+      border-color: var(--danger-border);
+    }
+
+    .acc-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1rem;
+    }
+    .acc-toolbar button {
+      min-height: var(--tap);
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .acc-toolbar button:active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* lightly increase spacing */
+    .card {
+      padding: 1.2rem 1.1rem 1.35rem;
+      margin-bottom: 1.15rem;
+    }
+    .card h3 {
+      margin: 0 0 0.95rem;
+    }
+    .card h4 {
+      margin: 1.25rem 0 0.55rem;
+    }
+    .card li { margin: 0.65rem 0; }
+    .card p { margin: 0.55rem 0 0.85rem; }
+    .category { margin-bottom: 2.4rem; }
+
+
+    /* Mobile: shrink sticky header so ~70% viewport is reading area */
+    @media (max-width: 640px) {
+      :root {
+        --tap: 2.35rem;
+        --pad: 0.75rem;
+      }
+      html {
+        scroll-padding-top: calc(28vh + var(--header-pad-top));
+      }
+      .header-inner {
+        padding: 0.3rem var(--pad) 0.35rem;
+      }
+      .title-row {
+        gap: 0.35rem;
+        align-items: center;
+      }
+      .header-titles h1 {
+        font-size: 1.02rem;
+        line-height: 1.25;
+      }
+      /* Reclaim vertical space: tips stay available on desktop */
+      .header-titles .wa-tip,
+      .header-titles .subtitle {
+        display: none;
+      }
+      .font-size-ctrl {
+        gap: 0.2rem;
+      }
+      .font-size-ctrl button {
+        min-width: 2.2rem;
+        min-height: 2.2rem;
+        padding: 0 0.3rem;
+        font-size: 0.78rem;
+        border-radius: 7px;
+      }
+      .search-row {
+        margin-top: 0.3rem;
+        gap: 0.3rem;
+      }
+      #search {
+        min-height: var(--tap);
+        padding: 0.35rem 0.65rem;
+        font-size: 0.92rem;
+      }
+      #search-clear {
+        min-height: var(--tap);
+        min-width: var(--tap);
+        padding: 0 0.5rem;
+        font-size: 0.78rem;
+      }
+      #search-status {
+        margin: 0.12rem 0 0;
+        font-size: 0.7rem;
+        min-height: 0;
+        line-height: 1.2;
+      }
+      #search-status:empty { display: none; }
+      .tabs {
+        margin-top: 0.3rem;
+        gap: 0.25rem;
+      }
+      .tab {
+        min-height: 2.25rem;
+        padding: 0.28rem 0.4rem;
+        font-size: 0.76rem;
+      }
+      .jump-row {
+        margin-top: 0.3rem;
+        gap: 0.15rem;
+      }
+      .jump-row label {
+        font-size: 0.7rem;
+      }
+      .section-select {
+        min-height: var(--tap);
+        padding: 0.3rem 1.9rem 0.3rem 0.55rem;
+        font-size: 0.88rem;
+      }
+      .layout {
+        padding: 0.55rem var(--pad) 2rem;
+      }
+      .acc-toolbar {
+        margin-bottom: 0.65rem;
+        gap: 0.35rem;
+      }
+      .acc-toolbar button {
+        min-height: 2.25rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.82rem;
+      }
+    }
+
+    @media print {
+      .site-header { position: static; box-shadow: none; padding-top: 0; }
+      .search-row, .tabs, .jump-row, #search-status,
+      .sidebar, .back-top, #search-clear, .font-size-ctrl, .wa-tip { display: none !important; }
+      .layout { display: block; max-width: none; padding: 0; }
+      .card, details.card-acc { break-inside: avoid; box-shadow: none; display: block !important; }
+      details.card-acc > summary.card-sum { padding: 0.5rem 0; }
+      details.card-acc .card-body { border: none; padding: 0.25rem 0 0.75rem; }
+      .acc-toolbar { display: none !important; }
+      .card.filter-hidden { display: block !important; }
+      .table-wrap { overflow: visible; border: none; }
+      .table-wrap table { min-width: 0; font-size: 10pt; }
+      body { background: #fff; font-size: 11pt; }
+      a { color: inherit; text-decoration: none; }
+      .disclaimer, .callout-danger, .redflag-card { border: 1px solid #999; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="title-row">
+        <div class="header-titles">
+          <h1>嬰幼兒健康講座筆記</h1>
+          <p class="wa-tip">建議用手機瀏覽器全螢幕開啟，閱讀較舒適</p>
+          <p class="subtitle">給未能到場的家長與照顧者：按「疾病」「日常護理」「營養健康」三大類整理全日講座重點。屬講座現場筆記，不能取代醫護評估。</p>
+        </div>
+        <div class="font-size-ctrl" role="group" aria-label="調整字級">
+          <button type="button" id="font-minus" title="縮小字級" aria-label="縮小字級">A−</button>
+          <button type="button" id="font-plus" title="放大字級" aria-label="放大字級">A＋</button>
+        </div>
+      </div>
+      <div class="search-row">
+        <input type="search" id="search" placeholder="搜尋筆記關鍵字（例如：發燒、RSV、鐵質）…" autocomplete="off" aria-label="搜尋筆記" />
+        <button type="button" id="search-clear" hidden>清除</button>
+      </div>
+      <p id="search-status" aria-live="polite"></p>
+      <nav class="tabs" aria-label="三大類別">
+        <button type="button" class="tab active" data-cat="disease" aria-pressed="true">一、疾病</button>
+        <button type="button" class="tab" data-cat="care" aria-pressed="false">二、日常護理</button>
+        <button type="button" class="tab" data-cat="nutrition" aria-pressed="false">三、營養健康</button>
+      </nav>
+      <div class="jump-row">
+        <label for="section-select">選擇章節（疾病）</label>
+        <select id="section-select" class="section-select" aria-label="選擇疾病章節">
+          <option value="">— 全部疾病章節 —</option>
+          <option value="flu">流感疫苗（噴鼻與注射）</option>
+          <option value="rsv">呼吸道合胞病毒（RSV）</option>
+          <option value="bronchitis">支氣管炎</option>
+          <option value="wheeze">喘鳴：何時留心</option>
+          <option value="asthma">哮喘</option>
+          <option value="pneumococcus">肺炎鏈球菌</option>
+          <option value="mycoplasma">肺炎支原體</option>
+          <option value="hib">Hib（乙型流感嗜血桿菌）</option>
+          <option value="bacterial-ge">細菌性腸胃炎</option>
+          <option value="viral-ge">病毒性腸胃炎（輪狀／諾如）</option>
+          <option value="enterovirus">腸病毒</option>
+          <option value="hfmd">手足口與皰疹性咽峽炎</option>
+          <option value="varicella">水痘</option>
+          <option value="scarlet">猩紅熱</option>
+          <option value="mening">現場問答：腦膜炎球菌疫苗</option>
+        </select>
+        <p id="select-cat-hint" class="select-cat-hint" aria-live="polite">下拉目前顯示：疾病章節</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="目錄">
+      <h2>目錄</h2>
+            <ul class="toc">
+        <li class="depth-0"><a href="#disease">一、疾病</a></li>
+        <li class="depth-1"><a href="#flu" data-section="flu">流感疫苗</a></li>
+        <li class="depth-1"><a href="#rsv" data-section="rsv">RSV</a></li>
+        <li class="depth-1"><a href="#bronchitis" data-section="bronchitis">支氣管炎</a></li>
+        <li class="depth-1"><a href="#wheeze" data-section="wheeze">喘鳴</a></li>
+        <li class="depth-1"><a href="#asthma" data-section="asthma">哮喘</a></li>
+        <li class="depth-1"><a href="#pneumococcus" data-section="pneumococcus">肺炎鏈球菌</a></li>
+        <li class="depth-1"><a href="#mycoplasma" data-section="mycoplasma">肺炎支原體</a></li>
+        <li class="depth-1"><a href="#hib" data-section="hib">Hib</a></li>
+        <li class="depth-1"><a href="#bacterial-ge" data-section="bacterial-ge">細菌性腸胃炎</a></li>
+        <li class="depth-1"><a href="#viral-ge" data-section="viral-ge">病毒性腸胃炎</a></li>
+        <li class="depth-1"><a href="#enterovirus" data-section="enterovirus">腸病毒</a></li>
+        <li class="depth-1"><a href="#hfmd" data-section="hfmd">手足口／皰疹性咽峽炎</a></li>
+        <li class="depth-1"><a href="#varicella" data-section="varicella">水痘</a></li>
+        <li class="depth-1"><a href="#scarlet" data-section="scarlet">猩紅熱</a></li>
+        <li class="depth-1"><a href="#mening" data-section="mening">腦膜炎球菌疫苗</a></li>
+        <li class="depth-0"><a href="#care">二、日常護理</a></li>
+        <li class="depth-1"><a href="#fever" data-section="fever">發燒護理</a></li>
+        <li class="depth-1"><a href="#fever-seizure" data-section="fever-seizure">發燒抽筋</a></li>
+        <li class="depth-1"><a href="#breathing-difficulty" data-section="breathing-difficulty">呼吸困難</a></li>
+        <li class="depth-1"><a href="#dehydrate" data-section="dehydrate">嘔瀉、脫水與環境清潔</a></li>
+        <li class="depth-1"><a href="#skin" data-section="skin">濕疹、鼻敏感、轉季與清鼻</a></li>
+        <li class="depth-1"><a href="#redflags" data-section="redflags">何時求醫速查</a></li>
+        <li class="depth-0"><a href="#nutrition">三、營養健康</a></li>
+        <li class="depth-1"><a href="#gut" data-section="gut">腸道微生態與兩歲前關鍵期</a></li>
+        <li class="depth-1"><a href="#iron" data-section="iron">鐵質、米糊與穀物</a></li>
+        <li class="depth-1"><a href="#vitamins" data-section="vitamins">致敏食物、蔬果豆與維他命</a></li>
+        <li class="depth-1"><a href="#omega" data-section="omega">魚類、Omega-3、ALA 與益生菌</a></li>
+        <li class="depth-1"><a href="#meal-plan" data-section="meal-plan">幼兒餐單與膳食搭配例子</a></li>
+        <li class="depth-1"><a href="#lifestyle" data-section="lifestyle">生活作息與抵抗力</a></li>
+      </ul>
+    </aside>
+
+    <main class="main" id="main">
+
+      <div class="disclaimer" role="note">
+        <strong>閱讀前請先了解</strong>
+        <p>本筆記整理自講座現場內容，方便未能到場者掌握重點。個別孩子情況不同，用藥、就醫、接種與飲食請跟從醫生、護士、營養師及衛生署最新指引。緊急情況請即求醫或致電 <strong>999</strong>。</p>
+      </div>
+
+      
+      <div class="acc-toolbar" role="group" aria-label="展開或收合全部章節">
+        <button type="button" id="acc-expand-all">全部展開</button>
+        <button type="button" id="acc-collapse-all">全部收合</button>
+      </div>
+
+      <p class="no-results" id="no-results">找不到符合的內容，請試其他關鍵字。</p>
+
+      <!-- ========== 一、疾病 ========== -->
+      <section class="category" id="disease" data-category="disease">
+        <h2 class="cat-heading">一、疾病</h2>
+        <p class="cat-intro">本部分整理講座中各類感染病種、傳播特點、家居觀察重點，以及相關疫苗資訊（以講者當日所述為準）。</p>
+        <details class="card card-acc" id="flu" data-searchable data-section="flu" open>
+          <summary class="card-sum"><span>流感疫苗（噴鼻與注射）</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>噴鼻與注射的分別</h4>
+            <ul>
+            <li>噴鼻型流感疫苗屬減毒活疫苗：病毒仍然存活但已減弱，一般不會令健康人真正病倒，卻能刺激身體建立免疫。</li>
+            <li>較不適合使用噴鼻型的情況包括：免疫系統問題較大的孩子或成人，以及長期或嚴重鼻敏感者。</li>
+            <li>上述情況通常改用注射型（滅活／不活化）流感疫苗較合適。</li>
+            <li>家長須知道兩種疫苗並不相同；選哪一種宜按年齡與健康狀況詢問醫生。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="rsv" data-searchable data-section="rsv" open>
+          <summary class="card-sum"><span>呼吸道合胞病毒（RSV）</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>病程與家居觀察</h4>
+            <ul>
+            <li>RSV 相關下呼吸道感染在嬰幼兒較常見，亦較令人擔心。</li>
+            <li>起初一兩天往往不太嚴重，約第三至四天會加重。</li>
+            <li>完全好轉常要約一星期，甚至一兩星期。</li>
+            <li>目前沒有可立刻「殺光病毒」的特效藥，家居與醫院處理以舒緩為主。</li>
+            <li>舒緩方向包括：霧化幫助呼吸、補充水分（因為呼吸急促時較易失水）；有需要時可用支氣管擴張等藥物（口服或霧化）。</li>
+            <li>月齡越小越需警惕；講座提到現有相關預防接種選擇（例如含 RSV 相關成分的組合或接種次序），實際方案須跟從醫生及最新指引。</li>
+            <li>染病後的小嬰兒不可掉以輕心，病情變化宜密切觀察並適時求醫。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="bronchitis" data-searchable data-section="bronchitis" open>
+          <summary class="card-sum"><span>支氣管炎</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>成因與症狀</h4>
+            <ul>
+            <li>支氣管因腫脹與痰液變窄、不通暢，聽診可聽到「嘻嘻」聲。</li>
+            <li>一年四季都可發生，冬季較多；近期小兒咳嗽個案亦多。</li>
+            <li>可分為急性與慢性；氣管較敏感的孩子較易反覆發作。</li>
+            <li>多數由病毒引起，例如流感、鼻病毒等。</li>
+            <li>常見症狀包括咳嗽、痰多，亦可有氣喘；幼兒未必會說，只表現胸口不適或呼吸急促。</li>
+            </ul>
+            <h4>處理重點</h4>
+            <ul>
+            <li>處理重點是舒緩鼻涕、痰與咳嗽，並多補充水分。</li>
+            <li>需要時可用擴張藥：口服、儲霧罐加面罩；較嚴重則改用霧化。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="wheeze" data-searchable data-section="wheeze" open>
+          <summary class="card-sum"><span>喘鳴：何時留心</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>何時留心</h4>
+            <ul>
+            <li>家長若在孩子睡覺時聽到喘鳴聲，宜及早就醫，不要只當普通氣管敏感。</li>
+            <li>喘鳴可見於支氣管問題，亦可因異物吸入（例如花生、豆、小玩具等）引起。</li>
+            <li>醫生會聽兩邊呼吸是否對稱；若一邊明顯不同，要懷疑單側阻塞。</li>
+            <li>先天性心臟病等亦可出現類似表現，因此喘鳴不一定只是氣管過敏。</li>
+            <li>若反覆出現喘鳴，要考慮哮喘，並跟醫生跟進。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="asthma" data-searchable data-section="asthma" open>
+          <summary class="card-sum"><span>哮喘</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>重點與家居</h4>
+            <ul>
+            <li>講座指約每十名小朋友有一人患哮喘；有家族史（父母或家族成員）時機會較高。</li>
+            <li>減少致敏原：床單被套宜約每週清洗；少放毛公仔，或把毛公仔放入密封袋。</li>
+            <li>家中勿吸煙，包括二手煙，以及附著在窗簾、梳化等的三手煙。</li>
+            </ul>
+            <h4>藥物與活動</h4>
+            <ul>
+            <li>藍色等「即時舒緩」擴張劑，用於發作時快速紓緩氣管收窄。</li>
+            <li>啡、橙、紫、白等「長期預防」吸入劑常含類固醇，目的是減少發作次數。</li>
+            <li>講座指經吸入途徑、正確使用時，一般不影響生長。</li>
+            <li>運動方面：急速長跑較不適合，因為冷風刺激易咳；游泳相對較合適。</li>
+            <li>冬天外出可戴口罩，減少冷空氣直接刺激氣管。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="pneumococcus" data-searchable data-section="pneumococcus" open>
+          <summary class="card-sum"><span>肺炎鏈球菌</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>重點</h4>
+            <ul>
+            <li>講座提及近期有兒童重症個案；可致嚴重肺炎、菌血症、腎衰竭、腦膜炎、中耳炎等。</li>
+            <li>經飛沫傳播，可寄居鼻咽。幼兒（尤其五歲以下）與長者風險較高。</li>
+            </ul>
+            <h4>疫苗／治療</h4>
+            <ul>
+            <li>疫苗重要：由政府計劃演進至現行 15 價；另有 20 價，與 15 價各有取捨。</li>
+            <li>血清型 3 在港常見，疫苗對此型保護相對較弱，但仍應按建議接種。</li>
+            <li>抗生素可治，但近年有抗藥，有時需特別抗生素。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="mycoplasma" data-searchable data-section="mycoplasma" open>
+          <summary class="card-sum"><span>肺炎支原體</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>重點</h4>
+            <ul>
+            <li>介乎病毒與細菌之間；飛沫傳播；潛伏期可較長。</li>
+            <li>表現往往「低調」：燒未必很高，但咳得久、人未必很不舒服卻長期不好。</li>
+            </ul>
+            <h4>疫苗／治療</h4>
+            <ul>
+            <li>目前無疫苗。輕者或可自癒；持續不好需特別抗生素。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="hib" data-searchable data-section="hib" open>
+          <summary class="card-sum"><span>Hib（乙型流感嗜血桿菌）</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>重點</h4>
+            <ul>
+            <li>未完成接種的幼兒較易感染；一歲以下可致嚴重腦膜炎、中耳炎、肺炎等。</li>
+            <li>可寄居呼吸道，飛沫傳播，潛伏約兩至四天。</li>
+            </ul>
+            <h4>疫苗／治療</h4>
+            <ul>
+            <li>有疫苗、有抗生素可治。香港政府計劃未包 Hib（講座指本地會厭炎等相對不常見，成本效益考量）；私家五合一／六合一等常含 Hib，不少家長自費接種。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="bacterial-ge" data-searchable data-section="bacterial-ge" open>
+          <summary class="card-sum"><span>細菌性腸胃炎</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>夏季較常見</h4>
+            <ul>
+            <li>常見病原包括大腸桿菌、沙門氏菌（錄音或聽成「三黃細菌」）。</li>
+            <li>大腸桿菌亦可見於大便或環境；夏天 buffet、放置過久的凍食較易滋生細菌與毒素。</li>
+            <li>沙門氏菌與蛋：生蛋、太陽蛋、糖心蛋等未熟透蛋風險高，幼兒應避免。</li>
+            <li>蛋煮熟前宜洗殼（菌可在殼外）；處理蛋後必須洗手，以免經手傳染。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="viral-ge" data-searchable data-section="viral-ge" open>
+          <summary class="card-sum"><span>病毒性腸胃炎（輪狀／諾如）</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>秋冬季較多</h4>
+            <ul>
+            <li>常見為輪狀病毒、諾如病毒。</li>
+            <li>輪狀疫苗約四週起可口服，共兩或三劑，須在六個月前完成；逾期再服有腸套疊風險上升的顧慮。</li>
+            <li>諾如病毒目前沒有疫苗。</li>
+            <li>兩者均常致嘔瀉；諾如常表現為噴射式嘔吐。</li>
+            <li>嘔吐物須用較濃漂白水清理約兩米範圍；病毒可在表面留存數日，院舍容易爆發。</li>
+            <li>潛伏約一至兩日；多數可自癒。最怕脫水——補水與電解質比硬逼進食更重要。</li>
+            <li>出現血便，或肚痛尖叫不止時，應盡快求醫，以排除腸套疊等可能需要外科處理的情況。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="enterovirus" data-searchable data-section="enterovirus" open>
+          <summary class="card-sum"><span>腸病毒</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>認識腸病毒</h4>
+            <ul>
+            <li>腸病毒家族包括小兒麻痺、柯薩奇、埃可等；其中腸病毒 71 型（EV71）較令人擔心，因為可致腦膜炎或腦炎（近年較少大爆發）。</li>
+            <li>可經消化道、呼吸道或接觸傳播；以夏季為主，冬季亦可出現。</li>
+            <li>相關表現可包括手足口病、皰疹性咽峽炎、腦炎／腦膜炎、心肌炎。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="hfmd" data-searchable data-section="hfmd" open>
+          <summary class="card-sum"><span>手足口與皰疹性咽峽炎</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>手足口病</h4>
+            <ul>
+            <li>手足口病常見口腔紅白點，以及手脚或指邊水疱；疱破後具傳染性。</li>
+            <li>大人亦可中招，皮膚脫落有時可以很嚴重；多數屬自限性疾病。</li>
+            <li>無特效抗病毒藥，以止痛等舒緩為主；抗生素無效。EV71 嚴重個案少但可危及生命；講座指目前無相關疫苗。預防靠勤洗手；派對等親密接觸容易傳播。</li>
+            </ul>
+            <h4>皰疹性咽峽炎</h4>
+            <ul>
+            <li>皰疹性咽峽炎：口腔疱疹明顯，手腳可以沒有疹。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="varicella" data-searchable data-section="varicella" open>
+          <summary class="card-sum"><span>水痘</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>傳播與返學</h4>
+            <ul>
+            <li>潛伏期可長至約兩至三週。</li>
+            <li>經飛沫、直接接觸傳播，亦可空氣傳播。</li>
+            <li>出疹前數日至結痂前都具傳染性，因此須待結痂後才返學。</li>
+            <li>建議接種水痘疫苗。</li>
+            <li>曾出水痘者，病毒可潛伏於神經；多年後免疫下降時可成帶狀疱疹（生蛇）；長者可考慮蛇針，須跟醫生建議。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="scarlet" data-searchable data-section="scarlet" open>
+          <summary class="card-sum"><span>猩紅熱</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>認識與治療</h4>
+            <ul>
+            <li>甲型鏈球菌引起咽喉炎後出疹：可見沙紙樣紅疹、「草莓舌」、全身潮紅。</li>
+            <li>經飛沫傳播。必須治療，因為細菌可波及腎臟導致腎炎與高血壓。</li>
+            <li>有抗生素可用；服藥約兩至三日後通常較不具傳染性。</li>
+            <li>目前沒有預防猩紅熱的疫苗。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="mening" data-searchable data-section="mening" open>
+          <summary class="card-sum"><span>現場問答：腦膜炎球菌疫苗</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>是否常規接種</h4>
+            <ul>
+            <li>香港發病率相對不高，故部分相關疫苗非政府常規必打。</li>
+            <li>一旦感染可極嚴重，因此仍值得與醫生討論個別需要。</li>
+            <li>十八個月前常規針已多，是否加打可再與醫生商量；入學或多人接觸後，打針屬多一重保障。</li>
+            </ul>
+            <h4>ACWY 與 B</h4>
+            <ul>
+            <li>常見可選疫苗包括 ACWY 與 B 型。</li>
+            <li>講者指本地及鄰近地區較相關的是 ACWY（內地 A、C 型較多）。</li>
+            <li>若決定接種，講者傾向選擇 ACWY。</li>
+            <li>約一歲以上，ACWY 通常可一針完成基礎接種（以產品說明及醫生指示為準）。</li>
+            <li>赴美、英、加、澳等地升學時，青少年或需再加強接種。</li>
+            <li>英國 B 型較流行，當地嬰幼兒計劃含 B；香港是否接種 B 型，視乎接觸風險與個別諮詢。</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <!-- ========== 二、日常護理 ========== -->
+      <section class="category" id="care" data-category="care">
+        <h2 class="cat-heading">二、日常護理</h2>
+        <p class="cat-intro">本部分整理發燒、發燒抽筋、呼吸困難、嘔瀉脫水、皮膚鼻敏感與轉季照顧，以及何時應求醫的速查重點。</p>
+
+        <details class="card card-acc" id="fever" data-searchable data-section="fever" open>
+          <summary class="card-sum"><span>發燒護理</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>核心觀念：發燒不是病</h4>
+            <ul>
+            <li>發燒是免疫防禦機制，不是要「醫掉」的病；目標不是硬把燒壓低，而是找出背後原因並處理。</li>
+            <li>大腦遇細菌、病毒或致敏原時，會把體溫設定點調高（例如由 37°C 調至約 39°C），有助「打仗」：高溫不利病原繁殖，心跳加快，免疫反應較易動員。</li>
+            <li>病毒感染多無特效抗生素，主要靠自身免疫；整天帶發燒孩子去商場等，通常不會令康復更快。</li>
+            <li>重點在家支援免疫與舒緩不適：補水、休息、易消化食物。</li>
+            </ul>
+
+            <h4>發冷與發燒抽筋對照</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th></th><th>發冷（產熱期）</th><th>發燒抽筋</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>意識</td><td>清醒，可對話</td><td>不清醒</td></tr>
+            <tr><td>顫抖</td><td>可按停</td><td>按不停</td></tr>
+            <tr><td>其他</td><td>身體在產熱、升溫</td><td>易缺氧、面唇發紺</td></tr>
+            </tbody>
+            </table></div>
+
+            <ul>
+            <li>發冷時宜保暖，協助較快升到設定體溫。</li>
+            <li>發冷一停（全身熱、面紅、約 39–40°C）時，勿再厚包焗汗；改為減衣、薄棉質，出汗即換。</li>
+            <li>可按指示用退燒藥舒緩體感與肌肉不適，但退燒藥並非「醫好病」。</li>
+            </ul>
+
+            <h4>免疫系統發展（講座比喻「盾牌」）</h4>
+            <ul>
+            <li>0–6 個月：自身防禦較弱；能母乳宜餵；盡量少去人多處；托兒要留意交叉感染。</li>
+            <li>約至三歲逐漸加強，仍易病；約三至五歲較成熟。</li>
+            <li>先天屏障（黏膜等）加上後天／疫苗（提早認識病原，下次反應更快）；接觸與發熱是發展過程一部分，急不來。</li>
+            <li>打完針後一至兩日輕微發燒可屬正常；病得久或表現異常，由醫生再查其他可能。</li>
+            </ul>
+
+            <h4>量體溫（講座／衛生署要點）</h4>
+            <ul>
+            <li>耳探：衛生署指六個月以下不宜（耳道未完全發育）；醫院亦常以三個月以下不用耳探。</li>
+            <li>幼嬰較準為腋探；額溫只宜初步篩查，不可單靠。</li>
+            <li>腋探：夾在腋窩中間，勿夾到衣服；夾穩至響鈴或完成再取出。</li>
+            <li>耳探姿勢：一歲以下拉耳向後；一歲以上向後兼向上，盡量暢通耳道；懷疑可量兩三次，取較高值。</li>
+            <li>耳垢多、耳膜受損、中耳炎有分泌時勿用耳探，宜改腋探。</li>
+            <li>運動後或劇烈活動後體溫可偏高，宜休息再量。</li>
+            </ul>
+
+            <h4>退燒藥與補藥規則</h4>
+            <ul>
+            <li>體溫真正回落，多是病原量下降、身體「收兵」之後；藥主要是舒緩。劑量必須按當時體重，勿用數月前舊藥。</li>
+            <li>常用：撲熱息痛（Panadol）較單純舒緩；布洛芬（Brufen）略具抗炎，副作用相對多。無明顯發炎或喉痛時，講座傾向先用撲熱息痛。</li>
+            <li>何時用藥：精神尚可、食睡大致正常，38–39°C 或可先觀察；明顯疲累、食不下、睡不穩時用藥舒緩。</li>
+            <li>退燒後仍極昏睡乏力，宜再診，排除較重狀況。有發燒抽筋史者，下次發燒或可較早給藥，減少再觸發風險（跟醫生）。</li>
+            <li>吃了退燒藥後即食即嘔：可考慮再補一次退燒藥。</li>
+            <li>若已過約半小時至一小時，通常不補（吸收情況不明），改用物理降溫。</li>
+            <li>若有補藥，下次用藥時間由補藥那一次起計。</li>
+            </ul>
+
+            <h4>物理降溫、散熱與幼嬰補水</h4>
+            <ul>
+            <li>約 39°C 時溫水浴或溫毛巾抹身，常可降約 0.5°C 或以上；微血管擴張，體熱較易散出，孩子往往較快舒服。</li>
+            <li>勿焗汗、勿硬拒冷氣：要協助散熱。著鬆身棉質吸汗，一濕即換，才舒服並可持續排汗。</li>
+            <li>發冷再來時：體溫由低再升，發冷時再加衣保暖；過程中體溫高低起伏可屬正常。</li>
+            <li>看趨勢，不單看單次數字：例如第一日高峰 39.5°C、第二日約 38.9°C、第三日約 38°C——每日最高點在降，多表示免疫在運作。</li>
+            <li>飲食：初期胃口差宜清淡；發燒期宜易消化（如蒸蘋果、雪梨等）；胃口較好可加蛋、奶；高燒時勿硬塞難消化的肉類，能吃多少算多少。</li>
+            <li>六個月以下：發燒時胃口差、易出汗，宜多餐、每餐略多給一點奶；切勿稀釋配方奶。</li>
+            <li>可用口服補液鹽（ORS）；一般運動飲品不及 ORS 合適。</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card card-acc" id="fever-seizure" data-searchable data-section="fever-seizure" open>
+          <summary class="card-sum"><span>發燒抽筋</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>基本認識</h4>
+            <ul>
+            <li>多見於約六個月至五歲（腦未完全成熟）。</li>
+            <li>體溫急升時腦電波短暫異常，常於數秒至約一兩分鐘自行停止。</li>
+            <li>一般 simple 發燒抽筋不會造成長遠智障等影響；約五歲後多數不再出現。</li>
+            <li>父母曾有發燒抽筋史，孩子風險可較高。</li>
+            <li>需與其他抽筋原因分開：腦感染、家族癲癇等——若懷疑則需進一步檢查。</li>
+            <li>表現可包括：全身強直或抽動、雙眼上翻、不清醒；短暫缺氧可致面唇發紺。</li>
+            </ul>
+            <h4>抽筋當下怎麼做</h4>
+            <ol class="steps">
+            <li>
+            <span class="step-title">抽筋當下（宜做）</span>
+            保持冷靜；移至安全處（如床），移開硬物，在旁看著。記下時間與表現（發紺、眼上等），方便告訴醫生；有人幫手可短片記錄助診斷。
+            </li>
+            <li>
+            <span class="step-title">抽筋當下（勿做）</span>
+            勿把手指塞入口防咬舌（講者遇過家長手指受傷）；按停不了的顫抖亦勿硬按。
+            </li>
+            <li>
+            <span class="step-title">抽筋之後</span>
+            多數短暫昏睡乏力。用復原臥位：側臥、頭微微後仰（勿過度後仰；嬰幼兒頭相對大，需托穩）、一腿跨過中線固定；口朝下利口水／嘔吐物流出，減少嗆肺。等車、抱起、轉身時仍要托頭、保持氣道暢通。
+            </li>
+            <li>
+            <span class="step-title">抽筋後何時入院</span>
+            首次或情況未明，通常會入院觀察，分辨 simple 抑或 complex（例如二十四小時內再抽、需進一步檢查或用藥等）。若孩子反覆抽筋且已有醫生跟進計劃，何時可不必每次入院，跟醫生指示。
+            </li>
+            </ol>
+          </div>
+        </details>
+        <details class="card card-acc" id="breathing-difficulty" data-searchable data-section="breathing-difficulty" open>
+          <summary class="card-sum"><span>呼吸困難</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>可能原因</h4>
+            <ul>
+            <li>下呼吸道感染：哮喘、細支氣管炎、肺炎。</li>
+            <li>呼吸道阻塞：過敏反應、嘶吼症（狗吠咳嗽聲）；食物或小物件卡在呼吸道；扁桃體肥大／睡眠窒息等。</li>
+            <li>心臟問題：先天性心臟病可導致運動後呼吸困難。</li>
+            <li>呼吸神經受影響：抽筋亦可影響呼吸。</li>
+            </ul>
+            <h4>常見症狀</h4>
+            <ul>
+            <li>呼吸很費力，使用輔助肌肉呼吸。</li>
+            <li>呼吸急促；心跳加快。</li>
+            <li>嘴唇呈現藍色（發紺）。</li>
+            <li>外觀可見：鼻孔間歇性擴張、胸骨上窩凹陷、肋骨下緣凹陷、腹部肌肉用力。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="dehydrate" data-searchable data-section="dehydrate" open>
+          <summary class="card-sum"><span>嘔瀉、脫水與環境清潔</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>常見嘔瀉原因</h4>
+            <ul>
+            <li>感染性腸胃炎：如諾如病毒、輪狀病毒或細菌感染（常可伴發燒；便便可帶血、黏液）。</li>
+            <li>緊急外科腸病：腸套疊、闌尾炎等——肚痛持續劇烈、尖叫，便後亦不緩解時應盡快入院（或需手術）。</li>
+            <li>非感染性嘔吐：乳糖不耐症、牛奶蛋白過敏、過度餵食、幽門狹窄（小嬰兒飲後噴射式嘔吐、不飲則無）、食物過敏、藥物副作用等。</li>
+            <li>家長往往難分清楚；重點是識別危險徵象與脫水風險。勿自亂加量止瀉藥。</li>
+            <li>建議記錄輸入輸出與趨勢：喝了多少、嘔／瀉次數與量、半消化抑或水樣、有無血／啡／紅／黑等異常色。例如第一日水瀉約十次 → 第二日五六次且漸有渣 → 第三日再成形一點，多屬好轉；若次數愈來愈多、仍全是水，宜再診並密切防脫水。</li>
+            <li>講座提醒：過量止瀉藥可令腸蠕動過慢、脹氣、菌滯留——不少做法傾向以補水為主、少食多餐、清淡飲食，讓病原排出。</li>
+            </ul>
+
+            <h4>感染性腸胃炎病徵</h4>
+            <ul>
+            <li>大便頻密並稀爛或水狀。</li>
+            <li>可能出現嘔吐及發燒。</li>
+            <li>會自然痊癒；病徵可持續約一至十天。</li>
+            <li>嚴重時可出現脫水甚至併發症。</li>
+            </ul>
+
+            <h4>照顧者主要護理：補水與電解質</h4>
+            <ul>
+            <li>身體約三分二是水；嚴重嘔瀉會大量流失水分與電解質。初步警號：尿量減少、尿色深黃。</li>
+            <li>嚴重電解質失衡可致抽筋、心律或腎功能異常——不可輕視。</li>
+            <li>勿只猛灌清水：曾有胃口差卻狂喝清水，最後電解質失衡、抽筋入院的例子。</li>
+            <li>輕度脫水：可透過口服補充 ORS（口服補液鹽，鹹甜比例已調配）；亦可按醫生指導自製鹽糖水。</li>
+            <li>太甜飲品可刺激腸道、瀉得更厲害；發燒期可用較天然的蒸蘋果水／雪梨水等，或 ORS。</li>
+            <li>口服補得上時，ORS 作用類似靜脈補液；喝不下或嚴重脫水則可能需要靜脈輸液。</li>
+            <li>補法：針筒或小杯少量多次；大口猛喝易即刻嘔回。勿硬逼狂飲。</li>
+            </ul>
+
+            <h4>脫水程度速查（AAP 定義，約適用 0–3 歲）</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>程度</th><th>觀察與處理（完整）</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>輕度</td>
+            <td>原則：補充水分與電解質；少食多餐、清淡飲食。用湯匙或針筒每次給約 15–30 ml，每 15–30 分鐘一次，再視情況逐漸增加份量。口服 ORS。不應該做：稀釋配方奶；給含糖量高的果汁或汽水（可能加重腹瀉）；若孩子嘔吐，不應強迫喝，請等待 30–60 分鐘後再嘗試給予少量液體。</td>
+            </tr>
+            <tr>
+            <td>中度</td>
+            <td>煩躁不安、眼淚減少、嘴唇乾燥、活動力降低；尿量減少、尿液呈深黃色。</td>
+            </tr>
+            <tr>
+            <td>嚴重</td>
+            <td>意識狀態改變：極度疲倦、異常嗜睡或神智不清。排尿量極少或完全無尿；尿液可呈深褐色或暗紅色。生命表徵惡化：心跳加快、呼吸急促。外觀觀察重點：皮膚失去彈性、黏膜極度乾燥、眼窩／頭頂囟門明顯凹陷、哭泣時沒有眼淚、手腳冰冷、唇乾／舌面極乾；尿量極少（約每日一至兩次）→ 出現嚴重脫水徵象應盡快入院（可進展至休克）。</td>
+            </tr>
+            </tbody>
+            </table></div>
+
+            <h4>預防交叉感染：環境清潔（衛生署處理嘔吐物指引）</h4>
+            <ul>
+            <li>嬰幼院／中心處理生物危害物（例如嘔吐物）時，清潔及消毒範圍約兩米。</li>
+            </ul>
+            <ol class="steps">
+            <li><span class="step-title">防護</span>須戴上手套及外科口罩。</li>
+            <li><span class="step-title">清理可見污物</span>用即棄抹布清理可見的嘔吐物。</li>
+            <li><span class="step-title">漂白水消毒</span>用 1 比 49 稀釋漂白水，由外向內徹底清潔消毒附近約兩米範圍。</li>
+            <li><span class="step-title">停留時間</span>漂白水在染污表面停留約三十分鐘。</li>
+            <li><span class="step-title">廢物處理</span>用膠袋紮妥，放入有蓋垃圾桶內。</li>
+            <li><span class="step-title">洗手</span>須徹底以梘液和清水洗手。</li>
+            </ol>
+
+            <h4>預防交叉感染：衣物清潔</h4>
+            <ol class="steps">
+            <li><span class="step-title">先清大污穢</span>小心清除受污染床單及衣服上較大的污穢物。</li>
+            <li><span class="step-title">漂白水浸泡</span>浸於 1 比 49 稀釋漂白水約三十分鐘，然後再徹底清洗。</li>
+            <li><span class="step-title">校／中心不洗</span>染污的衣物物件不應在學校及中心內洗滌；應放在膠袋內讓家長取走，家長回家後應使用漂白水消毒衣物。</li>
+            <li><span class="step-title">洗手</span>處理完受污染衣物後，須徹底以梘液和清水洗手。</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="skin" data-searchable data-section="skin" open>
+          <summary class="card-sum"><span>濕疹、鼻敏感、轉季與清鼻</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>濕疹分佈（二至三個月）</h4>
+            <ul>
+            <li>常見於面部、胸口、大腿及屁股。</li>
+            <li>亦可見於肘外側、膝頭前方。</li>
+            </ul>
+            <h4>濕疹分佈（一至兩歲）</h4>
+            <ul>
+            <li>常見於頸、肘內側、膝頭後方、腳跟。</li>
+            </ul>
+            <h4>濕疹分佈（較大的小孩）</h4>
+            <ul>
+            <li>常見於手腕、肘內側、膝頭後方、腳跟。</li>
+            </ul>
+            <h4>濕疹護理</h4>
+            <ul>
+            <li>致敏因素可包括塵蟎、貓狗毛等環境因素；勿因濕疹自行嚴格戒食至只剩白飯奶——過敏測試宜在濕疹較穩定後較準。</li>
+            <li>夏冬皆可惡化（冬天偏乾）；較大孩子壓力亦可誘發。</li>
+            <li>少用鹼性或泡泡浴；嬰兒清水即可。水溫約體溫（約 37–38°C），淋浴約五分鐘內，勿浸太久。</li>
+            <li>保濕要夠量、夠次數：沖涼後全身厚塗至摸到一層油感；每日至少約四五次（含睡前）。</li>
+            <li>豬油膏類為鎖水用，非真豬油；勿當日常隨便亂塗。</li>
+            <li>嚴重發炎可短期用消炎或類固醇藥膏（聽醫生指示），勿當潤膚膏長期濫用。</li>
+            </ul>
+            <h4>鼻敏感</h4>
+            <ul>
+            <li>對塵蟎、花粉、毛髮等；症狀包括喷嚏、流涕、夜間鼻塞、鼻黏膜紅腫，可有眼痕；嚴重可致鼻竇炎。</li>
+            <li>擤鼻涕時勿捏實雙側猛擤（易把分泌物壓入鼻竇）；可單側擤，或用濕棉球清潔。</li>
+            <li>早晚用濕棉球清鼻有助帶走塵埃；家居清潔、減少毛髮；藥物可有抗組胺、鼻用噴霧；少數嚴重者考慮免疫治療（年幼未必適合）。</li>
+            </ul>
+            <h4>轉季照顧</h4>
+            <ul>
+            <li>洋蔥式穿衣，方便加減；氣管敏感者注意冷氣與溫差。</li>
+            <li>勤洗手優於長期依賴乾洗手；洗後可護手霜。室內定時開窗通風。</li>
+            <li>不適則在家休息，勿帶病上學。照顧病童時成人宜戴口罩，免一家輪流病。</li>
+            </ul>
+            <h4>清鼻（約七個月亦適用）</h4>
+            <ul>
+            <li>為何要清鼻：鼻暢才舒服；分泌物倒流咽喉易喉痕、咳嗽。</li>
+            <li>方法：浸濕棉花球拉長後放入鼻孔，帶出分泌物；生理鹽水噴後仍要清走污物才有用。</li>
+            <li>較嚴重可按醫囑用藥性鼻噴霧。</li>
+            <li>床頭或床墊下墊毛巾，略抬高頭部，平躺鼻塞或可稍減。</li>
+            <li>補水：水分不足則鼻腔偏乾、分泌物更易黏塞。</li>
+            <li>醫生已開藥可按指示服用。吵鬧可接受，盡量少影響睡眠；咳得厲害要再診，排除支氣管炎（或需擴張等藥物）。清鼻、鼻水都處理好仍久咳，宜聽診查支氣管炎。</li>
+            </ul>
+          </div>
+        </details>
+
+                <details class="card redflag-card card-acc" id="redflags" data-searchable data-section="redflags" open>
+          <summary class="card-sum"><span>何時求醫速查</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+            <div class="callout callout-danger">
+              <strong>宜盡快求醫／入院評估</strong>
+              出現下列情況不要拖延。
+            </div>
+            <h4>發燒抽筋相關：判斷幾時要去醫院</h4>
+            <ul>
+              <li>第一次發燒抽筋。</li>
+              <li>抽筋持續超過約四分鐘。</li>
+              <li>昏睡持續太耐或精神呆滯。</li>
+              <li>有呼吸困難。</li>
+              <li>二十四小時內反覆抽搐。</li>
+              <li>六個月以下或五歲之後出現抽筋。</li>
+            </ul>
+            <h4>嘔瀉相關：判斷何時去醫院</h4>
+            <ul>
+              <li>六個月以下的嬰兒出現嘔吐或腹瀉。</li>
+              <li>噴射性嘔吐（尤其小嬰兒，需排除幽門狹窄等）。</li>
+              <li>嚴重脫水。</li>
+              <li>外科急症徵象：嘔吐物呈綠色、咖啡色或血絲。</li>
+              <li>血便：糞便有血絲或黑便。</li>
+              <li>腹痛持續劇烈並發燒。</li>
+            </ul>
+            <h4>持續高燒</h4>
+            <ul>
+              <li>持續約 39.5°C 連續多日、幾乎沒有回落——講者提及沙門氏菌等個案曾五日企在高位，最終需入院抗生素；亦可有腹瀉、血便等。持續企在高位，宜再診，評估是否需抗生素或其他檢查。</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <!-- ========== 三、營養健康 ========== -->
+      <section class="category" id="nutrition" data-category="nutrition">
+        <h2 class="cat-heading">三、營養健康</h2>
+        <p class="cat-intro">本部分整理腸道微生態、鐵質與加固、致敏食物引入、蔬果維他命、Omega-3 與益生菌、幼兒餐單與膳食搭配例子，以及提升抵抗力的生活作息。營養數字以講者當日所述為準。</p>
+
+        <details class="card card-acc" id="gut" data-searchable data-section="gut" open>
+          <summary class="card-sum"><span>腸道微生態與兩歲前關鍵期</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>為何強調兩歲前</h4>
+            <ul>
+            <li>腸道是接觸外界病原的主要途徑之一；約 70–80% 免疫相關細胞在腸道發揮防禦。</li>
+            <li>飲食愈多元，愈有助建立腸道益生菌微生態；不止「餵飽孩子」，也要「餵養」腸道益生菌，形成保護罩。</li>
+            <li>約兩歲後，再想大幅塑造腸道微生態，效果相對沒那麼顯著——因此兩歲前是關鍵期（對育嬰院職員與家長都特別相關）。</li>
+            </ul>
+            <h4>0–6 個月：天然防護與母乳</h4>
+            <ul>
+            <li>出世時有母體 IgG 等抗體，約涵蓋前半年防禦。</li>
+            <li>鼓勵母乳：配方難以完全替代的成分包括 HMO（人乳寡糖）——嬰兒難消化，卻成益生菌「食糧」，亦有助帶走部分病原。</li>
+            <li>sIgA（與維他命 A 關係密切）可強化黏膜物理屏障，減少病原進入。</li>
+            </ul>
+            <h4>約 6 個月：免疫缺口與加固意義</h4>
+            <ul>
+            <li>母傳 IgG 逐漸代謝，約六個月水平明顯下降；若飲食未補上，易出現免疫「缺口」。</li>
+            <li>加固兩大作用：提供後天免疫細胞所需營養（如鐵作「燃料」）；並透過益生菌訊息訓練免疫細胞分辨「外來入侵」與「無害」。</li>
+            <li>訓練不足時，身體易對多種物質過度反應，過敏風險較高。</li>
+            </ul>
+            <h4>膳食纖維養好腸道微生態</h4>
+            <ul>
+            <li>選擇新鮮的蔬菜和水果。</li>
+            <li>不同顏色和種類的蔬果有不同的營養特點。</li>
+            <li>選擇多元蔬果時，可同時補充膳食纖維、維他命 A、維他命 C、維他命 E。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="iron" data-searchable data-section="iron" open>
+          <summary class="card-sum"><span>鐵質、米糊與穀物</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>鐵的角色與需求</h4>
+            <ul>
+            <li>講者強調鐵是最重要營養之一：作用包括腦發育、防貧血、活化後天免疫細胞。</li>
+            <li>約七個月起需求明顯上升；一歲後發育節奏變慢，攝取建議略降，仍須足夠。</li>
+            <li>吸收率假設約一成時，食物份量要相應估算。</li>
+            <li>母乳鐵含量遠低於配方（同約 880 ml 對比差很大）→ 全母乳嬰兒貧血風險較高，加固飲食要特別留意鐵。</li>
+            </ul>
+            <h4>強化鐵米糊與食物來源</h4>
+            <ul>
+            <li>強化鐵米糊：午＋晚若吃足，可接近約 11 mg 目標量級；選米糊要看標籤是否強化鐵。</li>
+            <li>豬潤富鐵：約一至兩湯匙可近一日約三分一需要，但維他命 A 極高，宜控制每週次數與份量，防中毒。</li>
+            <li>紅肉（牛／豬）：嬰兒一日約 30 g 肉約 1 mg 鐵量級；蛋黃亦是來源。亦可製成牛肉／豬肉米糊或肉泥。</li>
+            <li>魚類（如三文魚泥）鐵不及紅肉，但仍可輪替。</li>
+            <li>植物鐵：乾豆（如毛豆、紅腰豆、紅豆、綠豆、馬豆、鷹嘴豆等）、豆腐、菠菜等深绿蔬菜——含量看似不少，但吸收較肉類低，宜配維他命 C 豐富食物助吸收。</li>
+            </ul>
+            <h4>選米糊與穀物搭配</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>類型</th><th>講座看法</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>只有大米、無強化鐵</td>
+            <td>營養偏能量為主，不太適合純母乳嬰兒作主要鐵來源。</td>
+            </tr>
+            <tr>
+            <td>多穀／全穀但標籤無鐵</td>
+            <td>成分乾淨好，但未必鐵足夠；較適合已喝配方者。</td>
+            </tr>
+            <tr>
+            <td>標明強化鐵</td>
+            <td>母乳餵哺加固時宜優先認標籤有鐵。</td>
+            </tr>
+            </tbody>
+            </table></div>
+
+            <ul>
+            <li>講座建議日常搭配：一份精製、一份全穀（修正後筆記）。</li>
+            <li>全穀提供膳食纖維（益生元）與較豐富的維他命與鐵；種類愈多，餵養的益生菌種類愈多，微生態愈多元。</li>
+            <li>蔬菜已有纖維，仍要吃全穀與多元食物；天天只有少數幾樣，菌相易偏窄。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="vitamins" data-searchable data-section="vitamins" open>
+          <summary class="card-sum"><span>致敏食物、蔬果豆與維他命</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>致敏食物引入</h4>
+            <ul>
+            <li>潛在致敏食物宜在安全方法下較早引入（講座方向與一般加固建議一致）。</li>
+            <li>每次只試一款，觀察數日，方便分辨反應來自哪一種食物。</li>
+            <li>勿給整粒堅果（哽噎風險）；可用無糖果仁粉或純果仁醬混入糊中。</li>
+            <li>高風險個案（例如嚴重濕疹、已知過敏）應先與兒科商量。</li>
+            </ul>
+            <h4>蔬果與豆類</h4>
+            <ul>
+            <li>選擇新鮮的蔬菜和水果。</li>
+            <li>不同顏色和種類的蔬果有不同的營養特點。</li>
+            <li>蔬果提供膳食纖維以及維他命 A、維他命 C、維他命 E；愈多元愈好，可按顏色作指標，並同時補充上述營養。</li>
+            <li>每日仍建議有一款深绿；例子包括：菠菜、西蘭花、節瓜、南瓜、香蕉等。</li>
+            <li>豆類兼備蛋白質、纖維與鐵；宜壓茸或煮爛再給予。</li>
+            <li>豆腐可由幼滑蓉泥逐步至約 0.5–1 cm 小方塊，作為質感進程例子。</li>
+            </ul>
+            <h4>不同顏色蔬果例子</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>顏色</th><th>例子</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>紅</td><td>蕃茄、紅椒、紅菜頭、蘋果</td></tr>
+            <tr><td>橙黃</td><td>粟米、紅蘿蔔、南瓜、橙</td></tr>
+            <tr><td>啡白</td><td>洋蔥、蓮藕、菇類、火龍果</td></tr>
+            <tr><td>綠</td><td>綠葉蔬菜、西蘭花、奇異果</td></tr>
+            <tr><td>藍紫黑</td><td>茄子、紫椰菜、藍莓</td></tr>
+            </tbody>
+            </table></div>
+            <h4>常被忽略的蔬菜／肉類代替品——乾豆</h4>
+            <ul>
+            <li>乾豆例子包括：毛豆、紅腰豆、紅豆、綠豆、馬豆、鷹嘴豆等。</li>
+            <li>富含澱粉質、膳食纖維與蛋白質。</li>
+            <li>亦富含維他命 B、鐵與鋅。</li>
+            <li>可用來取代肉類（作肉類代替品／蛋白質來源輪替）。</li>
+            <li>給予幼兒時宜先煮軟，再壓茸或煮爛，方便吞嚥與消化。</li>
+            </ul>
+            <h4>維他命 A</h4>
+            <ul>
+            <li>有助健全黏膜、鞏固物理屏障，減少病原入侵。</li>
+            <li>較穩妥靠紅黃橙蔬果的胡蘿蔔素；例子包括：胡蘿蔔、南瓜、紅椒、番茄、番薯等。</li>
+            <li>屬脂溶性；零至兩歲煮食加適量油有助吸收。</li>
+            </ul>
+            <h4>維他命 C</h4>
+            <ul>
+            <li>鞏固皮膚屏障，並有助鐵吸收。</li>
+            <li>怕熱，宜靠生果；例子包括蘋果、香蕉，以及橙、奇異果等（甜橙可，過凍或不適者另論）。</li>
+            <li>補充劑研究顯示未必明顯少病，但病後或較快復元。</li>
+            </ul>
+            <h4>維他命 D</h4>
+            <ul>
+            <li>嬰兒不宜為補維他命 D 刻意暴曬。</li>
+            <li>全母乳嬰兒常規多建議維他命 D 滴劑（跟從醫生或衛生署建議）。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="omega" data-searchable data-section="omega" open>
+          <summary class="card-sum"><span>魚類、Omega-3、ALA 與益生菌</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>魚類與 Omega-3</h4>
+            <ul>
+            <li>魚類鐵不及紅肉，但提供蛋白質、維他命 D、鋅及 Omega-3（DHA／EPA），有助抗炎調節。</li>
+            <li>每星期最少約兩次魚類。</li>
+            <li>約六至十二個月：每次約一湯匙量級。</li>
+            <li>一歲以上：每次約 30 g 或二至三湯匙。</li>
+            <li>例子：三文魚（可製成三文魚泥，再按質感進程逐步加粗）；慎選吞拿等高水銀魚。</li>
+            </ul>
+            <h4>植物 ALA</h4>
+            <ul>
+            <li>植物來源包括奇亞籽、亞麻籽、合桃。</li>
+            <li>身體可把 ALA 轉成 DHA／EPA，但轉化率較低，因此仍宜有魚類來源。</li>
+            <li>奇亞籽須先浸脹才給幼兒；亞麻籽用粉並冷藏；合桃用磨粉，避免整粒哽噎。</li>
+            </ul>
+            <h4>益生菌與糖</h4>
+            <ul>
+            <li>日常飲食已能餵養腸道益生菌時，不必人人專程吃補充品。</li>
+            <li>留意添加糖：量多時約數小時內先天免疫功能可暫時下降。</li>
+            <li>宜選無添加糖原味乳酪、天然凍食發酵芝士、納豆、原味開菲爾等。</li>
+            <li>一歲以下乳酪不可代替奶，但可少量淺嘗；間中可透過乳酪補充益生菌。</li>
+            </ul>
+            <h4>講座總結方向</h4>
+            <ol class="steps">
+            <li><span class="step-title">母乳</span>能為嬰幼兒鞏固先天和後天免疫。</li>
+            <li><span class="step-title">鐵質</span>六個月大開始需透過加固攝取鐵質，以堵塞「免疫缺口」。</li>
+            <li><span class="step-title">物理屏障</span>鞏固物理屏障，防止病菌入侵：維他命 A、維他命 C。</li>
+            <li><span class="step-title">腸道微生態</span>建立健康腸道微生態：多元化飲食，多吃全穀物和不同顏色種類的蔬果。</li>
+            <li><span class="step-title">抗炎調節</span>每星期最少兩次魚類（奧米加-3 脂肪酸），果仁種子磨粉加入食物。</li>
+            <li><span class="step-title">益生菌</span>間中可透過乳酪補充益生菌。</li>
+            <li><span class="step-title">拒絕游離糖</span>拒絕游離糖，並配合休息和運動，以確保免疫細胞正常運作。</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="meal-plan" data-searchable data-section="meal-plan" open>
+          <summary class="card-sum"><span>幼兒餐單與膳食搭配例子</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>說明</h4>
+            <ul>
+            <li>講座結尾給家長／照顧者的日常編餐方向，屬參考例子，非嚴格餐單。</li>
+            <li>把當日所學（鐵、一份精製一份全穀、蔬果、Omega-3、益生菌食物）靈活輪替進三餐即可。</li>
+            </ul>
+
+            <h4>提升免疫力健康配搭例子</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>早餐或茶點</th><th>午晚餐</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>母乳 + 強化鐵質米糊</td><td>牛肉碎西蘭花藜麥飯</td></tr>
+            <tr><td>香蕉純黑芝麻醬麥包卷</td><td>三文魚碎菠菜糙米粥</td></tr>
+            <tr><td>原味乳酪 + 水果 + 強化鐵質早餐穀物</td><td>雞肉洋蔥彩椒菜心粟米飯</td></tr>
+            <tr><td>南瓜籽粉拌蘋果泥</td><td>鷹嘴豆合桃腰果藜麥粥</td></tr>
+            <tr><td>番薯黑芝麻糊</td><td>紅腰豆南瓜肉碎燴飯</td></tr>
+            <tr><td>南瓜籽碎蛋花玉米麥皮</td><td>牛肉碎秋葵炒蛋飯</td></tr>
+            </tbody>
+            </table></div>
+
+            <h4>食物質感進程（約 6 個月 → 1–2 歲）</h4>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>食物</th><th>約六個月起</th><th>過渡</th><th>約一至兩歲</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>粥</td><td>稀薄幼滑蓉泥</td><td>漸稠、有軟粒</td><td>可見軟飯粒</td></tr>
+            <tr><td>南瓜</td><td>幼滑稀蓉</td><td>厚蓉／幼碎</td><td>軟丁或小塊</td></tr>
+            <tr><td>香蕉</td><td>幼滑稀蓉</td><td>厚蓉有軟粒</td><td>軟段／手指食物</td></tr>
+            <tr><td>菠菜</td><td>幼滑稀蓉</td><td>細碎厚蓉</td><td>粗碎葉片</td></tr>
+            <tr><td>節瓜</td><td>幼滑稀蓉</td><td>幼碎／細丁</td><td>軟小方塊</td></tr>
+            <tr><td>豆腐</td><td>幼滑液狀蓉</td><td>厚蓉有軟粒 → 粗碎</td><td>小方塊（約 0.5–1 cm）</td></tr>
+            <tr><td>蛋</td><td>幼滑蛋黃蓉</td><td>厚蓉 → 幼碎</td><td>粗碎熟蛋塊</td></tr>
+            <tr><td>西蘭花</td><td>（稍後開始）極幼碎花蕾</td><td>細碎花蕾</td><td>整朵小花蕾手指食物</td></tr>
+            <tr><td>肉</td><td>完全攪滑肉泥</td><td>幼碎肉蓉</td><td>粗碎／細粒肉</td></tr>
+            <tr><td>魚</td><td>幼滑魚泥</td><td>厚蓉有魚絲 → 細魚絲</td><td>較大軟魚塊</td></tr>
+            </tbody>
+            </table></div>
+
+            <h4>米糊／泥蓉比例例子</h4>
+            <ul>
+            <li>製作提示：加熱杯中加入約 120 ml 純淨水；食物杯中先加入適量純淨水，再加入米或食材。</li>
+            </ul>
+            <div class="table-wrap"><table>
+            <thead>
+            <tr><th>種類</th><th>比例（最大量）</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>米糊</td><td>水 200 ml＋米 50 g</td></tr>
+            <tr><td>土豆米糊</td><td>水 200 ml＋米 50 g＋土豆 30 g</td></tr>
+            <tr><td>豬肉米糊</td><td>水 200 ml＋米 50 g＋肉 30 g（開水燙約 5 分鐘去除血水後）</td></tr>
+            <tr><td>牛肉米糊</td><td>水 200 ml＋米 50 g＋牛肉 30 g（開水燙約 5 分鐘去除血水後）</td></tr>
+            <tr><td>蝦仁米糊</td><td>水 200 ml＋米 50 g＋蝦仁 30 g</td></tr>
+            <tr><td>南瓜米糊</td><td>水 200 ml＋米 50 g＋南瓜 30 g</td></tr>
+            <tr><td>胡蘿蔔泥</td><td>水 150 ml＋胡蘿蔔 120 g</td></tr>
+            <tr><td>土豆泥</td><td>水 150 ml＋土豆 120 g</td></tr>
+            <tr><td>牛肉泥</td><td>水 100 ml＋牛肉 120 g</td></tr>
+            <tr><td>豬肉泥</td><td>水 100 ml＋豬肉 120 g</td></tr>
+            <tr><td>三文魚泥</td><td>水 100 ml＋三文魚 120 g</td></tr>
+            <tr><td>蝦泥</td><td>水 100 ml＋蝦仁 120 g</td></tr>
+            <tr><td>山藥泥</td><td>水 100 ml＋山藥 120 g</td></tr>
+            <tr><td>南瓜泥</td><td>水 100 ml＋南瓜 120 g</td></tr>
+            <tr><td>蘋果泥</td><td>水 50 ml＋蘋果 120 g</td></tr>
+            <tr><td>菜泥</td><td>水 100 ml＋青菜 50 g</td></tr>
+            </tbody>
+            </table></div>
+
+            <h4>麵包、乳酪、果仁種子與晚餐方向</h4>
+            <ul>
+            <li>麵包或糊可加黑芝麻醬加香蕉等，提升營養與接受度。</li>
+            <li>一歲以下乳酪不可代奶，但可少量淺嘗；可拌新鮮水果，再配強化鐵早餐穀物。</li>
+            <li>南瓜籽粉等味淡者可混果泥、芝麻糊；若偏苦澀可加少許天然提味（按講者現場例子）。總結：果仁種子磨粉加入食物作抗炎調節。</li>
+            <li>晚餐方向：紅肉（如牛肉）加深绿蔬菜（西蘭花、菠菜等）；不必每日紅肉——可間中三文魚、有時雞肉。</li>
+            <li>飲食多元最重要；配合全穀物與不同顏色蔬果輪替。</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card card-acc" id="lifestyle" data-searchable data-section="lifestyle" open>
+          <summary class="card-sum"><span>生活作息與抵抗力</span><span class="acc-chevron" aria-hidden="true">▼</span></summary>
+          <div class="card-body">
+<h4>免疫怎麼運作</h4>
+            <ul>
+            <li>免疫如軍隊：病原可為細菌、病毒、真菌等。</li>
+            <li>先天屏障：皮膚、黏膜、痰液清除、吞噬細胞。</li>
+            <li>後天靠病後或疫苗建立記憶與抗體。</li>
+            <li>扁桃腺是前線之一——易發炎；長大後免疫較強，扁桃炎可減少。</li>
+            <li>淋巴結腫脹常表示「在打仗」；痛腫嚴重需求醫。</li>
+            <li>香港多數孩子按計劃接種，傳染病相對較少。</li>
+            </ul>
+            <h4>日常習慣</h4>
+            <ul>
+            <li>均衡飲食；必食含蛋白質與澱粉質的早餐。</li>
+            <li>適量運動、心情愉快、規律作息；病時補水與休息睡眠。</li>
+            <li>少電子產品；多戶外活動（有助維他命 D 與睡眠節律）。</li>
+            <li>洋蔥水、薑蔥等傳統食療講座指可作輔助舒緩，不能取代醫護評估。</li>
+            </ul>
+            <h4>疫苗提醒</h4>
+            <ul>
+            <li>政府計劃多數齊全；部分如講座先前提及的 Hib 等可私家補。</li>
+            <li>講者指甲肝、HPV 應跟香港建議接種（屬少數可防癌症相關的疫苗之一）。</li>
+            <li>不宜單跟外國個別調整（例如美國 CDC 曾調整部分建議）；以香港現行建議為準。</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-box">
+      <p><strong>整理說明：</strong>本版把講座錄音與現場圖文合併為統一筆記（不再標明個別來源標籤，亦不壓縮成短句）。已納入：流感噴鼻／注射差異、RSV 病程與舒緩、支氣管炎／喘鳴／哮喘、肺炎鏈球菌／支原體／Hib、細菌與病毒性腸胃炎、腸病毒／手足口／水痘／猩紅熱、腦膜炎球菌 ACWY／B 問答、發燒與退燒藥補藥規則、發燒抽筋步驟、呼吸困難原因與症狀、嘔瀉脫水分級與漂白水清潔步驟、濕疹分佈與清鼻、求醫紅旗、腸道微生態與鐵質米糊表、蔬果豆（乾豆例子：毛豆、紅腰豆、紅豆、綠豆、馬豆、鷹嘴豆等；豆腐質感進程）、膳食纖維與五色蔬果例子、提升免疫力健康配搭例子、總結七點、質感進程表與米糊／泥蓉比例。數字與份量以講者當日所述為準，實務請跟從醫護與衛生署最新指引。</p>
+      <p>來源：賽馬會幼兒喜步計劃／香港中文大學相關講座（2026）。</p>
+      <a class="back-top" href="#">回到頂部</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var searchInput = document.getElementById("search");
+      var clearBtn = document.getElementById("search-clear");
+      var statusEl = document.getElementById("search-status");
+      var noResults = document.getElementById("no-results");
+      var cards = Array.prototype.slice.call(document.querySelectorAll("[data-searchable]"));
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+      var categories = Array.prototype.slice.call(document.querySelectorAll(".category[data-category]"));
+      var sectionSelect = document.getElementById("section-select");
+      var originals = new Map();
+      var flashTimer = null;
+      var activeCategory = "disease";
+
+      var OPTIONS = {
+        disease: [
+          ["", "— 全部疾病章節 —"],
+          ["flu", "流感疫苗（噴鼻與注射）"],
+          ["rsv", "呼吸道合胞病毒（RSV）"],
+          ["bronchitis", "支氣管炎"],
+          ["wheeze", "喘鳴：何時留心"],
+          ["asthma", "哮喘"],
+          ["pneumococcus", "肺炎鏈球菌"],
+          ["mycoplasma", "肺炎支原體"],
+          ["hib", "Hib（乙型流感嗜血桿菌）"],
+          ["bacterial-ge", "細菌性腸胃炎"],
+          ["viral-ge", "病毒性腸胃炎（輪狀／諾如）"],
+          ["enterovirus", "腸病毒"],
+          ["hfmd", "手足口與皰疹性咽峽炎"],
+          ["varicella", "水痘"],
+          ["scarlet", "猩紅熱"],
+          ["mening", "現場問答：腦膜炎球菌疫苗"]
+        ],
+        care: [
+          ["", "— 全部日常護理章節 —"],
+          ["fever", "發燒護理"],
+          ["fever-seizure", "發燒抽筋"],
+          ["breathing-difficulty", "呼吸困難"],
+          ["dehydrate", "嘔瀉、脫水與環境清潔"],
+          ["skin", "濕疹、鼻敏感、轉季與清鼻"],
+          ["redflags", "何時求醫速查"]
+        ],
+        nutrition: [
+          ["", "— 全部營養健康章節 —"],
+          ["gut", "腸道微生態與兩歲前關鍵期"],
+          ["iron", "鐵質、米糊與穀物"],
+          ["vitamins", "致敏食物、蔬果豆與維他命"],
+          ["omega", "魚類、Omega-3、ALA 與益生菌"],
+          ["meal-plan", "幼兒餐單與膳食搭配例子"],
+          ["lifestyle", "生活作息與抵抗力"]
+        ]
+      };
+
+      var sectionToCategory = {};
+      cards.forEach(function (card) {
+        originals.set(card, card.innerHTML);
+        var sid = card.getAttribute("data-section");
+        var cat = card.closest("[data-category]");
+        if (sid && cat) sectionToCategory[sid] = cat.getAttribute("data-category");
+      });
+
+      function clearHighlights(card) {
+        if (originals.has(card)) {
+          card.innerHTML = originals.get(card);
+        }
+      }
+
+      function escapeRegExp(s) {
+        return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      function highlightInNode(node, re) {
+        if (node.nodeType === 3) {
+          var text = node.nodeValue;
+          if (!re.test(text)) return;
+          re.lastIndex = 0;
+          var frag = document.createDocumentFragment();
+          var last = 0;
+          var m;
+          while ((m = re.exec(text)) !== null) {
+            if (m.index > last) {
+              frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+            }
+            var mark = document.createElement("mark");
+            mark.className = "search-hit";
+            mark.textContent = m[0];
+            frag.appendChild(mark);
+            last = m.index + m[0].length;
+          }
+          if (last < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(last)));
+          }
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1 && node.tagName !== "SCRIPT" && node.tagName !== "STYLE") {
+          var children = Array.prototype.slice.call(node.childNodes);
+          children.forEach(function (c) { highlightInNode(c, re); });
+        }
+      }
+
+      function isSearching() {
+        return !!(searchInput.value || "").trim();
+      }
+
+      var CAT_LABEL = { disease: "疾病", care: "日常護理", nutrition: "營養健康" };
+
+      function onSectionChange() {
+        var v = sectionSelect ? sectionSelect.value : "";
+        if (!v) {
+          showCategory(activeCategory || "disease", { skipScroll: false });
+          return;
+        }
+        goToSection(v);
+      }
+
+      function bindSectionSelect() {
+        sectionSelect = document.getElementById("section-select");
+        if (!sectionSelect) return;
+        sectionSelect.onchange = onSectionChange;
+      }
+
+      function fillSelect(cat) {
+        if (!OPTIONS[cat]) cat = "disease";
+        var old = document.getElementById("section-select");
+        if (!old || !old.parentNode) return;
+        /* iOS / WhatsApp WebView caches native <select> option lists;
+           replacing the whole element forces a fresh picker. */
+        var neu = document.createElement("select");
+        neu.id = "section-select";
+        neu.className = "section-select";
+        neu.setAttribute("aria-label", "選擇" + (CAT_LABEL[cat] || "") + "章節");
+        OPTIONS[cat].forEach(function (pair) {
+          var opt = document.createElement("option");
+          opt.value = pair[0];
+          opt.textContent = pair[1];
+          neu.appendChild(opt);
+        });
+        neu.value = "";
+        old.parentNode.replaceChild(neu, old);
+        sectionSelect = neu;
+        bindSectionSelect();
+        var lab = document.querySelector("label[for='section-select']");
+        if (lab) lab.textContent = "選擇章節（" + (CAT_LABEL[cat] || "") + "）";
+        var hint = document.getElementById("select-cat-hint");
+        if (hint) hint.textContent = "下拉目前顯示：" + (CAT_LABEL[cat] || "") + "章節";
+      }
+
+      function getSelectedSection() {
+        return sectionSelect ? (sectionSelect.value || "") : "";
+      }
+
+      function setSelectValue(sectionId) {
+        if (!sectionSelect) return;
+        sectionSelect.value = sectionId || "";
+      }
+
+      function setActiveTab(cat) {
+        if (!cat || !OPTIONS[cat]) cat = "disease";
+        activeCategory = cat;
+        tabs.forEach(function (t) {
+          var on = t.getAttribute("data-cat") === cat;
+          t.classList.toggle("active", on);
+          if (t.hasAttribute("aria-pressed")) t.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        fillSelect(cat);
+      }
+
+      function flashCard(card) {
+        if (!card) return;
+        cards.forEach(function (c) { c.classList.remove("flash-highlight"); });
+        card.classList.add("flash-highlight");
+        if (flashTimer) clearTimeout(flashTimer);
+        flashTimer = setTimeout(function () {
+          card.classList.remove("flash-highlight");
+        }, 1600);
+      }
+
+      /* Category + chapter filter (non-search). Search overrides and can span all cats. */
+      function applyCategoryChapterFilter() {
+        var cat = activeCategory || "disease";
+        var sectionId = getSelectedSection();
+
+        cards.forEach(function (card) {
+          var sid = card.getAttribute("data-section");
+          var cardCat = sectionToCategory[sid];
+          var show = cardCat === cat;
+          if (show && sectionId) show = sid === sectionId;
+          card.classList.toggle("hidden", !show);
+        });
+
+        categories.forEach(function (sec) {
+          var c = sec.getAttribute("data-category");
+          sec.style.display = c === cat ? "" : "none";
+        });
+
+        statusEl.textContent = "";
+        noResults.classList.remove("visible");
+      }
+
+      function runSearch() {
+        var q = (searchInput.value || "").trim();
+        clearBtn.hidden = !q;
+
+        cards.forEach(clearHighlights);
+
+        if (!q) {
+          applyCategoryChapterFilter();
+          return;
+        }
+
+        var re = new RegExp(escapeRegExp(q), "gi");
+        var matchCount = 0;
+
+        cards.forEach(function (card) {
+          var plain = card.textContent || "";
+          if (re.test(plain)) {
+            card.classList.remove("hidden");
+            matchCount++;
+            re.lastIndex = 0;
+            highlightInNode(card, re);
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        categories.forEach(function (sec) {
+          var visible = sec.querySelectorAll("[data-searchable]:not(.hidden)").length;
+          sec.style.display = visible ? "" : "none";
+        });
+
+        statusEl.textContent = "找到 " + matchCount + " 個相關章節";
+        if (matchCount === 0) {
+          noResults.classList.add("visible");
+        } else {
+          noResults.classList.remove("visible");
+        }
+      }
+
+      function goToSection(sectionId, opts) {
+        opts = opts || {};
+        var card = document.getElementById(sectionId);
+        if (!card || !card.hasAttribute("data-section")) return;
+        var cat = sectionToCategory[sectionId];
+        if (!cat) return;
+
+        if (isSearching()) {
+          searchInput.value = "";
+          clearBtn.hidden = true;
+          cards.forEach(clearHighlights);
+        }
+
+        setActiveTab(cat);
+        setSelectValue(sectionId);
+        applyCategoryChapterFilter();
+
+        if (!opts.skipHash) {
+          if (history.replaceState) {
+            history.replaceState(null, "", "#" + sectionId);
+          } else {
+            location.hash = sectionId;
+          }
+        }
+
+        if (card.tagName === "DETAILS") card.open = true;
+        requestAnimationFrame(function () {
+          card.scrollIntoView({ behavior: "smooth", block: "start" });
+          flashCard(card);
+        });
+      }
+
+      function showCategory(cat, opts) {
+        opts = opts || {};
+        if (isSearching()) {
+          searchInput.value = "";
+          clearBtn.hidden = true;
+          cards.forEach(clearHighlights);
+        }
+        setActiveTab(cat);
+        setSelectValue("");
+        applyCategoryChapterFilter();
+        if (!opts.skipHash) {
+          if (history.replaceState) {
+            history.replaceState(null, "", "#" + cat);
+          } else {
+            location.hash = cat;
+          }
+        }
+        var target = document.getElementById(cat);
+        if (target && !opts.skipScroll) {
+          requestAnimationFrame(function () {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
+      }
+
+      var debounceTimer;
+      searchInput.addEventListener("input", function () {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(runSearch, 120);
+      });
+      clearBtn.addEventListener("click", function () {
+        searchInput.value = "";
+        runSearch();
+        searchInput.focus();
+      });
+
+      bindSectionSelect();
+
+      document.querySelectorAll(".toc a[data-section]").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          goToSection(a.getAttribute("data-section"));
+        });
+      });
+
+      document.querySelectorAll(".toc a[href='#disease'], .toc a[href='#care'], .toc a[href='#nutrition']").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          var href = a.getAttribute("href") || "";
+          var cat = href.replace(/^#/, "");
+          if (!OPTIONS[cat]) return;
+          e.preventDefault();
+          showCategory(cat);
+        });
+      });
+
+      function updateTabFromHash() {
+        var hash = (location.hash || "#disease").slice(1);
+        var el = document.getElementById(hash);
+        if (!el) {
+          showCategory("disease", { skipHash: true, skipScroll: true });
+          return;
+        }
+        if (el.hasAttribute("data-section")) {
+          var cat = sectionToCategory[hash];
+          if (cat) {
+            if (isSearching()) {
+              searchInput.value = "";
+              clearBtn.hidden = true;
+              cards.forEach(clearHighlights);
+            }
+            setActiveTab(cat);
+            setSelectValue(hash);
+            applyCategoryChapterFilter();
+            if (el.tagName === "DETAILS") el.open = true;
+            flashCard(el);
+          }
+          return;
+        }
+        if (el.getAttribute("data-category")) {
+          showCategory(el.getAttribute("data-category"), { skipHash: true, skipScroll: true });
+          return;
+        }
+        var parent = el.closest("[data-category]");
+        if (parent) {
+          showCategory(parent.getAttribute("data-category"), { skipHash: true, skipScroll: true });
+        } else {
+          showCategory("disease", { skipHash: true, skipScroll: true });
+        }
+      }
+
+      window.addEventListener("hashchange", updateTabFromHash);
+
+      tabs.forEach(function (t) {
+        t.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var cat = t.getAttribute("data-cat") || "disease";
+          showCategory(cat);
+        });
+      });
+
+      /* Accordion: expand / collapse all (visible cards only still get toggled; harmless on hidden) */
+      var accExpand = document.getElementById("acc-expand-all");
+      var accCollapse = document.getElementById("acc-collapse-all");
+      function setAllAcc(open) {
+        document.querySelectorAll("details.card-acc").forEach(function (d) {
+          d.open = open;
+        });
+      }
+      if (accExpand) accExpand.addEventListener("click", function () { setAllAcc(true); });
+      if (accCollapse) accCollapse.addEventListener("click", function () { setAllAcc(false); });
+
+      /* Font size (WhatsApp / older parents) */
+      var FS_KEY = "infant-notes-fs";
+      var FS_MIN = 15;
+      var FS_MAX = 22;
+      var FS_STEP = 1;
+      var root = document.documentElement;
+      function getFs() {
+        var n = parseInt(root.style.getPropertyValue("--fs") || getComputedStyle(root).getPropertyValue("--fs"), 10);
+        return isNaN(n) ? 17 : n;
+      }
+      function setFs(n) {
+        n = Math.max(FS_MIN, Math.min(FS_MAX, n));
+        root.style.setProperty("--fs", n + "px");
+        try { localStorage.setItem(FS_KEY, String(n)); } catch (e) {}
+      }
+      try {
+        var saved = parseInt(localStorage.getItem(FS_KEY), 10);
+        if (!isNaN(saved)) setFs(saved);
+      } catch (e) {}
+      var fontMinus = document.getElementById("font-minus");
+      var fontPlus = document.getElementById("font-plus");
+      if (fontMinus) fontMinus.addEventListener("click", function () { setFs(getFs() - FS_STEP); });
+      if (fontPlus) fontPlus.addEventListener("click", function () { setFs(getFs() + FS_STEP); });
+
+      updateTabFromHash();
+      console.log("PARSE_OK");
+    })();
+  </script>
+
+</body>
+</html>
